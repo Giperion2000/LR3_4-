@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "Delete";
+}
+
+@model LR3_4.Models.Category
+<h2>Удаление книги</h2>
+<dl>
+    <dt>Назва</dt>
+    <dd>
+        @Html.DisplayFor(model => model.CategoryName)
+    </dd>
+
+    
+</dl>
+
+@using (Html.BeginForm())
+{
+    <input type="submit" value="Удалить" />
+}

@@ -1,0 +1,99 @@
+﻿
+@{
+    ViewBag.Title = "AddPhone";
+}
+@model LR3_4.Models.Phone
+
+<!DOCTYPE html>
+
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddPr</title>
+</head>
+<div class="container">
+
+    <body>
+        <div id="main">
+            <!-- Основной раздел содержимого -->
+
+            <div id="left" style="width:1150px;">
+                <div>
+
+                    <div>
+                        <h3>Форма Додавання Телефонів</h3>
+                        <form method="post" action="">
+                            <!--<input type="hidden" value="ViewBag.ProductId" name="ProductId" />-->
+                            <table>
+                                <tr>
+                                    <td><p>Загрузіть зображення </p></td>
+                                    <td>@Html.EditorFor(model => model.Path) </td>
+                                </tr>
+                                <tr>
+                                    <td><p>Модель</p></td>
+                                    <td>@Html.EditorFor(model => model.Mark) </td>
+                                </tr>
+                                <tr>
+                                    <td><p>Ціна</p></td>
+                                    <td>@Html.EditorFor(model => model.Price) </td>
+                                </tr>
+
+
+
+                                <tr>
+                                    <td> <p> Виберіть категорію: </p> </td>
+                                    <td>
+                                        @Html.DropDownListFor(model => model.CategoryId, ViewBag.Category as SelectList)
+                                    </td>
+                                </tr>
+                                <tr><td><input type="submit" value="Отправить" /> </td><td></td></tr>
+                            </table>
+                        </form>
+                    </div>
+
+                </div>
+
+
+            </div>
+            <div id="right">
+                <table>
+                    <tr>
+                        <th>Зображення</th>
+                        <th>Марка</th>
+                        <th>Ціна</th>
+                        <th>Категорія</th>
+                        <th></th>
+                    </tr>
+                    @foreach (var b in ViewBag.Phones)
+                    {
+                        <tr>
+                            <td>
+                                <img src="@b.Path" style="height:100px;width:100px;" />
+                            </td>
+                            <td>
+                                @b.Mark
+                            </td>
+                            <td style="width:150px;">
+                                @b.Price
+                                <p></p>
+                            </td>
+
+                            <td>
+                                @b.CN1.CategoryName
+                            </td>
+                            <td>
+                                <a href="/AddPhone/EditP/@b.Id">Редагувати</a>
+                                <a href="/AddPhone/Deletep/@b.Id">Видалити</a>
+
+                            </td>
+
+                        </tr>
+
+
+                    }
+                </table>
+            </div>
+        </div>
+    </body>
+</div>
+

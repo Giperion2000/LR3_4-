@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewBag.Title = "EditP";
+}
+@model LR3_4.Models.Phone
+<!DOCTYPE html>
+
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddP</title>
+</head>
+
+<div class="container">
+
+    <body>
+        <div id="main">
+            <!-- Основной раздел содержимого -->
+
+            <div id="left" style="width:1150px;">
+                <div>
+
+                    <div>
+                        <h3>Форма редагування</h3>
+                        <form method="post" action="">
+                            <!--<input type="hidden" value="ViewBag.ProductId" name="ProductId" />-->
+                            <table>
+                                <tr>
+                                    <td><p>Загрузіть зображення </p></td>
+                                    <td>@Html.EditorFor(model => model.Path) </td>
+                                </tr>
+                                <tr>
+                                    <td><p>Введіть Марку </p></td>
+                                    <td>@Html.EditorFor(model => model.Mark) </td>
+                                </tr>
+                                <tr>
+                                    <td><p>Введіть Ціну :</p></td>
+                                    <td>
+                                        @Html.EditorFor(model => model.Price)
+                                    </td>
+                                </tr>
+                              
+
+
+
+                                <tr>
+                                    <td> <p> Виберіть категорію: </p> </td>
+                                    <td>
+                                        @Html.DropDownListFor(model => model.CategoryId, ViewBag.Category as SelectList)
+                                    </td>
+                                </tr>
+                                <tr><td><input type="submit" value="Отправить" /> </td><td></td></tr>
+                            </table>
+                        </form>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+    </body>
+</div>
+
